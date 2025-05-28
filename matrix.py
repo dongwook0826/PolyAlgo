@@ -21,13 +21,13 @@ def rref(field_cls: type[Field], mat: list[list[Field]]):
             tmp = emat[pr]
             emat[pr] = emat[zr]
             emat[zr] = tmp
-        print(f"pivot row-col ind: {pr}, {pc}")
+        # print(f"pivot row-col ind: {pr}, {pc}")
         # now the upper-leftmost entry of the submatrix is nonzero
         emat[pr] = [e / emat[pr][pc] for e in emat[pr]]
         for r in range(pr + 1, rown):
             emat[r] = [e - emat[r][pc] * ep for e, ep in zip(emat[r], emat[pr])]
-        print("after downward elim:")
-        print(emat)
+        # print("after downward elim:")
+        # print(emat)
         pr += 1
         pc += 1
     # upward
@@ -35,8 +35,8 @@ def rref(field_cls: type[Field], mat: list[list[Field]]):
         pc = min([c for c in range(coln) if emat[r][c] != field_cls.zero()])
         for ur in range(r):
             emat[ur] = [e - emat[ur][pc] * ep for e, ep in zip(emat[ur], emat[r])]
-        print(f"after upward elim @ row-col ind {r}, {pc}:")
-        print(emat)
+        # print(f"after upward elim @ row-col ind {r}, {pc}:")
+        # print(emat)
     return emat
 
 if __name__ == "__main__":

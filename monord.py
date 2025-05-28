@@ -10,6 +10,10 @@ def divisible_by(m1: tuple[int, ...], m2: tuple[int, ...]):
     check_len_match(m1, m2)
     return all([e1 >= e2 for e1, e2 in zip(m1, m2)])
 
+def mon_div(m1: tuple[int, ...], m2: tuple[int, ...]):
+    check_len_match(m1, m2)
+    return tuple([e1 - e2 for e1, e2 in zip(m1, m2)])
+
 ### monomial orders ###
 # LT = -1
 # EQ = 0
